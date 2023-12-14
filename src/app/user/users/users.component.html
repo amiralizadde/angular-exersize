@@ -1,0 +1,55 @@
+<div
+  class="tab-pane"
+  id="v-tabs-users"
+  role="tabpanel"
+  aria-labelledby="v-tabs-users-tab"
+>
+  <p *ngIf="!users.length">لطفا کمی صبر کنید...</p>
+  <table *ngIf="users.length" class="table table-striped" id="table-users">
+    <thead>
+      <tr>
+        <th scope="col">آیدی</th>
+        <th scope="col">نام</th>
+        <th scope="col">نام خانوادگی</th>
+        <th scope="col">شماره تلفن</th>
+        <th scope="col">ایمیل</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of getPage()" style="cursor: pointer" (click)="onUserClick(user.id)">
+        <td>{{ user.id }}</td>
+        <td>{{ user.fname }}</td>
+        <td>{{ user.lname }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="this.users.length" class="row mt-5">
+    <hr />
+    <div class="col">
+      <p>تعداد سطر: {{ users.length }}</p>
+    </div>
+    <div class="col">
+      <p>صفحه {{ page + 1 }} از {{ maxNumberOfPage }}</p>
+    </div>
+    <div *ngIf="maxNumberOfPage > 0" class="col">
+      <button
+        class="btn btn-light"
+        [disabled]="page + 1 >= maxNumberOfPage"
+        (click)="nextPage()"
+      >
+        &lt;
+      </button>
+
+      <span>{{ page + 1 }}</span>
+      <button
+        class="btn btn-light"
+        [disabled]="page <= 0"
+        (click)="previousPage()"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+</div>

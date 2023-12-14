@@ -1,0 +1,89 @@
+<div class="tab-pane">
+  <div class="mb-3 row">
+    <label for="firstname" class="col-sm-2 col-form-label">نام</label>
+    <div class="col-sm-10">
+      <input
+        (change)="onInputChange($event, 'firstname')"
+        [value]="firstname"
+        type="text"
+        class="form-control"
+        placeholder="نام شما"
+      />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="lastname" class="col-sm-2 col-form-label">نام خانوادگی</label>
+    <div class="col-sm-10">
+      <input
+        (change)="onInputChange($event, 'lastname')"
+        [value]="lastname"
+        type="text"
+        class="form-control"
+        placeholder="نام خانوادگی شما"
+      />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="phonenumber" class="col-sm-2 col-form-label">شماره تلفن</label>
+    <div class="col-sm-10">
+      <input
+        dir="ltr"
+        (change)="onInputChange($event, 'phonenumber')"
+        [value]="phonenumber"
+        type="text"
+        class="form-control"
+        placeholder="+98-000-000-0000"
+      />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="email" class="col-sm-2 col-form-label">ایمیل</label>
+    <div class="col-sm-10">
+      <input
+        (change)="onInputChange($event, 'email')"
+        [value]="email"
+        type="email"
+        class="form-control"
+        placeholder="email@example.com"
+        dir="ltr"
+      />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="password" class="col-sm-2 col-form-label">رمزعبور</label>
+    <div class="col-sm-10">
+      <input
+        (change)="onInputChange($event, 'password')"
+        [value]="password"
+        dir="ltr"
+        type="password"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="mt-5 mb-3 row">
+    <div class="col-2"></div>
+    <div class="col">
+      <button (click)="createUser()" class="btn btn-success btn-block w-100">
+        ایجاد
+      </button>
+    </div>
+    <div class="col">
+      <button (click)="resetInput()" class="btn btn-warning btn-block w-100">
+        از نو
+      </button>
+    </div>
+  </div>
+  <div *ngIf="errorResponse || succcessResponse" class="mt-5 row">
+    <hr />
+    <div *ngIf="errorResponse" class="col-2">
+      <span class="badge badge-pill bg-danger">خطا</span>
+    </div>
+    <div *ngIf="succcessResponse" class="col-2">
+      <span class="badge badge-pill bg-success">موفق</span>
+    </div>
+    <div class="col">
+      <p>{{ getMessage() }}</p>
+    </div>
+  </div>
+</div>

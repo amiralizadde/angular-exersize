@@ -1,0 +1,33 @@
+<div class="row d-flex align-items-start p-lg-5 m-lg-5 p-5 m-5 px-2 mx-0">
+  <div class="col-lg-2 col-md-3 col-4">
+    <div
+      class="nav flex-column nav-pills me-3"
+      id="v-pills-tab"
+      aria-orientation="vertical"
+    >
+      <a
+        routerLink="/new"
+        [class]="getNewUserLinkClassName()"
+        id="v-pills-newuser-tab"
+      >
+        کاربر جدید
+      </a>
+      <a
+        routerLink="/users"
+        [class]="getUsersLinkClassName()"
+        id="v-pills-users-tab"
+      >
+        کاربران
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-10 col-md-9 col-8">
+    <div
+      class="w-100 p-5"
+      style="border: 1px solid grey; border-radius: 5px"
+      id="v-pills-tabContent"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
